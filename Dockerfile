@@ -1,4 +1,4 @@
-ARG PYTHON_VERSION=3.8-slim
+ARG PYTHON_VERSION=3.13-slim
 FROM python:${PYTHON_VERSION} AS builder
 
 WORKDIR /app
@@ -12,7 +12,7 @@ FROM python:${PYTHON_VERSION}
 WORKDIR /app
 ENV PYTHONUNBUFFERED=1
 
-COPY --from=builder /usr/local/lib/python3.8/site-packages /usr/local/lib/python3.8/site-packages
+COPY --from=builder /usr/local/lib/python3.13/site-packages /usr/local/lib/python3.13/site-packages
 COPY --from=builder /usr/local/bin /usr/local/bin
 
 COPY . .
